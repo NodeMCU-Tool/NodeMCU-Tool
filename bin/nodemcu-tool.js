@@ -32,7 +32,7 @@ function asyncWrapper(promise){
             // trigger command
             .then(options => {
                 // re-merge
-                return promise(...args, options)
+                return promise(...args, options);
             })
 
             // trigger disconnect
@@ -43,10 +43,10 @@ function asyncWrapper(promise){
                 }
             })
 
-            // gracefull exit
+        // gracefull exit
             
             .then(() => {
-                process.exit(0)
+                process.exit(0);
             })
 
             // handle low-level errors
@@ -55,7 +55,7 @@ function asyncWrapper(promise){
                 _logger.debug(err.stack);
                 process.exit(1);
             });
-    }
+    };
 }
 
 // low level com errors
@@ -98,7 +98,7 @@ _cli
     // raw output mode
     .option('--raw', 'Display output as simple text with tab delimiter', null)
 
-    .action(asyncWrapper(async (options) => {
+    .action(asyncWrapper(async options => {
         // output format
         let format = 'human';
 
@@ -118,7 +118,7 @@ _cli
 _cli
     .command('run <file>')
     .description('Executes an existing .lua or .lc file on NodeMCU')
-    .action(asyncWrapper(async (filename) => {
+    .action(asyncWrapper(async filename => {
         await _nodemcutool.run(filename);
     }));
 
@@ -183,14 +183,14 @@ _cli
     .command('download <file>')
     .description('Download files from NodeMCU target')
 
-    .action(asyncWrapper(async (remoteFilename) => {
+    .action(asyncWrapper(async remoteFilename => {
         await _nodemcutool.download(remoteFilename);
     }));
 
 _cli
     .command('remove <file>')
     .description('Removes a file from NodeMCU filesystem')
-    .action(asyncWrapper(async (filename) => {
+    .action(asyncWrapper(async filename => {
         await _nodemcutool.remove(filename);
     }));
 
@@ -201,7 +201,7 @@ _cli
     // force fs creation without prompt
     .option('--noninteractive', 'Execute command without user interaction', null)
 
-    .action(asyncWrapper(async (options) => {
+    .action(asyncWrapper(async options => {
         // no prompt!
         if (options.noninteractive){
             // format
@@ -240,7 +240,7 @@ _cli
     .command('terminal')
     .description('Opens a Terminal connection to NodeMCU')
     .option('--run <filename>', 'Running a file on NodeMCU before starting the terminal session', null)
-    .action(asyncWrapper(async (options) => {
+    .action(asyncWrapper(async options => {
 
         // run a initial command on startup ?
         let initialCommand = null;
@@ -296,7 +296,7 @@ _cli
     // json output mode
     .option('--json', 'Display output JSON encoded', null)
 
-    .action(asyncWrapper(async (options) => {
+    .action(asyncWrapper(async options => {
         await _nodemcutool.devices(options.all, options.json);
     }));
 
@@ -307,7 +307,7 @@ _cli
     // softreset mode
     .option('--softreset', 'Resets the module using node.restart() command', null)
 
-    .action(asyncWrapper(async (options) => {
+    .action(asyncWrapper(async options => {
         // software reset
         if (options.softreset){
             await _nodemcutool.softreset();
