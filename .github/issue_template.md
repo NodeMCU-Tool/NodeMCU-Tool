@@ -3,7 +3,7 @@ title: 'Bug report - xxx not working'
 labels: status/validation-pending
 ---
 
-> **The following informations are required to debug/investigate the issue**
+> **The following information is required to debug/investigate the issue**
 >
 > Please edit the following structure to match **YOUR** configuration/environment
 >
@@ -26,7 +26,7 @@ labels: status/validation-pending
 ## Environment ##
 
 * **Operating System**  
-  Windows 7 / Windows 10-1809/ macOS 10.14 / Ubuntu 18.04.1 LTS / Debian 9.6
+  Windows 10 / Windows 11 / macOS 15 / Ubuntu 24 / Debian 12
 * **ESP Device/Revision**  
   ESP8266 / ESP32  
   Original NodeMCU `v1.1`
@@ -34,9 +34,9 @@ labels: status/validation-pending
   Please use the least recent version to validate the issue  
   `3.0.2`
 * **Node.js Version**  
-  `8.15.0`
-* **NodeMCU LUA Firmware Version**  
-  `1.5.1`
+  `18.15.0`
+* **NodeMCU Lua Firmware Version**  
+  `3.0.0`
 
 -------------
 
