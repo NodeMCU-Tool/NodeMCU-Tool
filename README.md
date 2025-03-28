@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/AndiDittrich/NodeMCU-Tool.svg?branch=master)](https://travis-ci.org/AndiDittrich/NodeMCU-Tool)
+# NodeMCU-Tool
+> Upload & download Lua files to your ESP8266/ESP32 module running NodeMCU firmware.
 
-NodeMCU-Tool
-============
-Upload/Download Lua files to your ESP8266/ESP32 module with NodeMCU firmware.
+[![CI](https://github.com/NodeMCU-Tool/NodeMCU-Tool/actions/workflows/ci.yml/badge.svg)](https://github.com/NodeMCU-Tool/NodeMCU-Tool/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](#license)
 
-**Simple. Command Line. Cross-Platform. File Management. [NodeMCU](http://nodemcu.com/index_en.html).**
+**Simple. Command Line. Cross-Platform. File Management. [NodeMCU](https://github.com/nodemcu/nodemcu-firmware).**
 
 ```shell
 $ npm install nodemcu-tool -g
@@ -33,7 +33,7 @@ NodeMCU Tool allows you to
 
 directly from the command line.
 
-*Successful tested on Windows10, Debian 8,9,10 and Ubuntu 14,15,16,17,18 - works out of the box without any tweaks*
+*Successful tested on Windows 10, Debian 8, 9, 10 and Ubuntu 14, 15, 16, 17, 18 - works out of the box without any tweaks*
 
 Compatibility
 -------------
@@ -68,7 +68,7 @@ Related Documents
 
 Terminology
 -----------
-* **NodeMCU** Original [NodeMCU](http://nodemcu.com/index_en.html) Module **OR** any [ESP8266](http://espressif.com/en/products/esp8266/) platform with [NodeMCU Firmware](https://github.com/nodemcu/nodemcu-firmware)
+* **NodeMCU** Original [NodeMCU](http://nodemcu.com/index_en.html) module **OR** any [ESP8266/ESP32](http://espressif.com/en/products/esp8266/) platform with [NodeMCU Firmware](https://github.com/nodemcu/nodemcu-firmware)
 * **Upload** Transfer files from your PC to NodeMCU/ESP8266 module
 * **Download** Transfer files/obtaining information from the module
 
@@ -82,16 +82,16 @@ To use/install the NodeMCU-Tool, you have to prepare your system to match the fo
 ### NodeMCU Serial Driver ###
 
 Depending on your Module-Type you have to install the platform-specific driver for the usb-serial-interface. 
-The original NodeMCU v0.9 comes with a CH341 chip with may requires manual driver installation. Modern versions like 1.0 use a CP210x chip with work out of the box on most common systems.
+The original NodeMCU v0.9 comes with a CH341 chip with may require manual driver installation. 
+Modern versions like 1.0 use a CP210x chip with work out of the box on most common systems.
 Other ESP8266 platforms may user other interfaces - please refer to their user manuals!
 
 ### Node.js ###
 
-The NodeMCU-Tool is written in javascript and requires [Node.js >= 7.6](https://nodejs.org) as runtime environment. And please don't worry about the wording - NodeMCU and Node.js are two **complete different** things!
+The NodeMCU-Tool is written in javascript and requires [Node.js >= 18](https://nodejs.org) as runtime environment. 
+Please don't worry about the wording - NodeMCU and Node.js are two **completely different** things!
 
-**!! There is currently an issue with Node.js 11 on Windows 10 platforms. Please use Node.js 10 LTS !!**
-
-In case you're not familiar with [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com) it's recommended to read some [basic introductions](https://docs.npmjs.com/getting-started/what-is-npm) first!
+In case you're not familiar with [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com) it is recommended to read some [basic introductions](https://docs.npmjs.com/getting-started/what-is-npm) first!
 Please [download the Node.js installer](https://nodejs.org/en/download/) and install on your system in case it's not already there.
 
 ---------------------------------------
@@ -99,18 +99,19 @@ Please [download the Node.js installer](https://nodejs.org/en/download/) and ins
 Installation
 ------------
 
-Thanks to Node.js, the NodeMCU-Tool is platform independent and will run on Windows, Linux und OSX. There are different installation variants available (system wide or project based). 
+Thanks to Node.js, the NodeMCU-Tool is platform independent and will run on Windows, Linux und OSX. 
+There are different installation variants available (system-wide or project based). 
 
 ### via NPM (Node.js Package Manager) ###
 
-It's recommended to install nodemcu-tool as [global package](https://docs.npmjs.com/getting-started/installing-npm-packages-globally).
+It is recommended to install nodemcu-tool as [global package](https://docs.npmjs.com/getting-started/installing-npm-packages-globally).
 NPM will register the binary automatically in your path - it will be directly available on the command line.
 
 #### Global Installation as root (Linux/Mac OS Platforms) ####
 
 The global installation may require administrator(root) privileges because the package is added to the systems library path. If you get any permission errors on Linux/Mac OS run the command as root or via `sudo`.
 
-> **Note:** In some special cases the installation may fail with some errors related to `node-serialport` or `node-gyp`. This errors are caused by missing pre-build binaries (native code/drivers for your platform matching your OS/nodejs version) - therefore they have to compiled on your machine!
+> **Note:** In some special cases the installation may fail with some errors related to `node-serialport` or `node-gyp`.These errors are caused by missing pre-build binaries (native code/drivers for your platform matching your OS/nodejs version) - therefore they have to compiled on your machine!
 > To resolve such issues, add the `--unsafe-perm` flag to the following command - it allows the build scripts to be executed as root.
 
 ```shell
